@@ -2,13 +2,12 @@ package Vue;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GrilleUI extends JFrame implements ActionListener {
+public class GrilleUI extends JPanel implements ActionListener {
 
 	// ATTRIBUTS
 	private static final int ROWS = 10;      // number of cells
@@ -18,15 +17,10 @@ public class GrilleUI extends JFrame implements ActionListener {
 	JButton[][] grid=  new JButton[10][10];
 	
 	public GrilleUI(String titre){
-		super(titre);
-		this.setSize(800,800);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		// frame
-		JPanel frame = new JPanel();
-		frame.setLayout(new GridLayout(ROWS,COLS));
-		
-		frame.setBackground(new Color(0,255,255));
+		super();
+		setLayout(new GridLayout(ROWS,COLS));
+		//setBackground(new Color(0,255,255));
 		
 	
 		for (int r = 0; r< ROWS; r++) {
@@ -38,23 +32,23 @@ public class GrilleUI extends JFrame implements ActionListener {
 				  
 				  // On cree un nouveau boutton
 				  JButton boutton = new JButton();
+				  boutton.setPreferredSize(new Dimension(40, 40));
+				  boutton.setMaximumSize(new Dimension(40, 40));
+				  boutton.setSize(new Dimension(40, 40));
 				  grid[r][c] = boutton;
 				  grid[r][c].setName(id_Boutton); // set name du bttn
 				  
 				  grid[r][c].addActionListener(this); // on écoute le boutton
-				  frame.add(grid[r][c]); // Ajout du boutton au grid
+				  add(grid[r][c]); // Ajout du boutton au grid
 				  
 				  }
 			  
 		 }
 	
-		// bordure
 		Border blackline = BorderFactory.createLineBorder(Color.black,5);
-		frame.setBorder(blackline);
-		add(frame);
+		setBorder(blackline);
+	
 
-		//fenetre visible
-		this.setVisible(true);
 	}
 
 	// METHODE ACTION PERFORMED
@@ -67,6 +61,5 @@ public class GrilleUI extends JFrame implements ActionListener {
 		System.out.println("Boutton appuyé: " + leBoutton.getName());
 	}
 	
-	
-	}
+}
 	
