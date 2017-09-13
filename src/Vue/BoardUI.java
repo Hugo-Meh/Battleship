@@ -11,6 +11,7 @@ public class BoardUI extends JFrame {
 	private JFrame frame;
 	private JPanel headBoard;
 	private JPanel gridContainer;	
+	private JPanel ButtonContainer;
 	private GrilleUI grid;
 	private GrilleUI agrid;
 	
@@ -25,20 +26,25 @@ public class BoardUI extends JFrame {
 		headBoard = new JPanel(); 
 		//headBoard.add();
 		headBoard.setSize(800,100);
-		headBoard.setForeground(new Color(0,0,255));
+		add(headBoard);
+		headBoard.setVisible(true);
+		
 		gridContainer = new JPanel();
 		gridContainer.setLayout(new GridLayout(1,2));
-		gridContainer.setSize(800,400);
+		//gridContainer.setSize(800,400);
 		grid = new GrilleUI("grid"); 
 		agrid = new GrilleUI("agrid");
 		
 		gridContainer.add(grid);
 		gridContainer.add(agrid);
 		
-		
 		add(gridContainer);
-		
 		gridContainer.setVisible(true);
+		
+		ButtonContainer = new JPanel();
+		ButtonContainer.setSize(800,100);
+		add(ButtonContainer);
+		ButtonContainer.setVisible(true);
 		setVisible(true);
 	}
 }
