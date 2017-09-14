@@ -10,7 +10,7 @@ import javax.swing.border.Border;
 import modele.Coord;
 @SuppressWarnings("serial")
 public class Case extends JButton {
-	public static int size = 40; 
+	public static int size = 60; 
 	private Coord coord;
 	
 	public Case(Coord coord) {

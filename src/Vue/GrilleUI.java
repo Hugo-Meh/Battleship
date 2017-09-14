@@ -18,23 +18,22 @@ public class GrilleUI extends JPanel implements ActionListener {
 	private static final int COLS = 10;
 	
 	private ArrayList<Case> Cases;
-	JButton[][] grid=  new JButton[10][10];
 	
 	public GrilleUI(String titre){
 		// frame
 		super();
 		setLayout(new GridLayout(ROWS,COLS));
-		
+		Cases = new ArrayList<Case>();
 		//setBackground(new Color(0,255,255));
 		
 	
-		for (int r = 0; r< ROWS; r++) {
+		for (int r = 1 ; r<= ROWS; r++) {
 			 
-			  for (int c= 0; c < COLS; c++) {
+			  for (int c = 1; c <= COLS; c++) {
 				  Case uneCase = new Case(new Coord(r,c));
 				  uneCase.addActionListener(this);  // on ecoute la Case
 				  Cases.add(uneCase); // Ajout de la case a la grille
-				  
+				  add(uneCase);
 				  /*// identifiant boutton en fonctions de ligne et colonne
 				  
 				  // On cree un nouveau boutton
