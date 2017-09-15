@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Controlleur.IControleur;
+
 public class BoardUI extends JFrame {
 
 	private JPanel headBoard;
@@ -19,7 +21,7 @@ public class BoardUI extends JFrame {
 	private GrilleUI agrid;
 	private int totalHeight =600;
 	private int totalwidth = 950;
-	public BoardUI(){
+	public BoardUI(IControleur myControleur){
 		
 		super("Battleship");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,8 +43,8 @@ public class BoardUI extends JFrame {
 		gridContainer = new JPanel();
 		gridContainer.setLayout(new GridLayout(1,2));
 		gridContainer.setSize(600,600);
-		grid = new GrilleUI("Joueur"); 
-		agrid = new GrilleUI("adversaire");
+		grid = new GrilleUI("Joueur",myControleur); 
+		agrid = new GrilleUI("adversaire",myControleur);
 		
 		// ajout des Grilles
 		gridContainer.add(grid);

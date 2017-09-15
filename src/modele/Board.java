@@ -5,8 +5,13 @@ import java.util.ArrayList;
 public class Board implements IBoard {
 	private int sizeX = 10;
 	private int sizeY = 10;
-	
+	private ArrayList<Coord> emptyCoord;
+	private patroler monPatroler;
 	public Board() {
+		emptyCoord = new ArrayList<Coord> (sizeX*sizeY - 10);
+		
+		//if(patroler.occupiedPosition)
+		
 	}
 
 	/*@Override

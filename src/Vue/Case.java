@@ -39,14 +39,16 @@ public class Case extends JButton {
 	
 	public void morph(String type) {
 		if (type == "vide") {
-			
+			setEnabled(false);			
+			setBackground(new Color(0, 0, 60));
 		}
 		
 		else {
-				/*BufferedImage deck = ImageIO.read(getClass().getResource("src folder 2/images.redX.png"));
-				ImageIcon myImage = new ImageIcon(deck);*/
-				ImageIcon myImage = new ImageIcon("/TP-Battleship/src/Vue/if_Close_Icon_1398919.png");
-				setIcon(myImage);
+			ImageIcon myImage = new ImageIcon("src\\Vue\\if_Close_Icon_1398919.png");
+			System.out.println(myImage.getIconWidth());		
+			setIcon(myImage);
+			setEnabled(false);	
+			setDisabledIcon(myImage);
 		}
 	}
 	

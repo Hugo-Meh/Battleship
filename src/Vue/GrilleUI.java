@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
+import Controlleur.IControleur;
 import modele.Coord;
 
 import java.awt.*;
@@ -17,12 +18,13 @@ public class GrilleUI extends JPanel implements ActionListener {
 	// ATTRIBUTS
 	private static final int ROWS = 10;    
 	private static final int COLS = 10;
-	
+	private IControleur monControleur;
 	private ArrayList<Case> Cases;
 	
-	public GrilleUI(String titre){
+	public GrilleUI(String titre ,IControleur monControleur){
 		// frame
 		super();
+		this.monControleur = monControleur;
 		setLayout(new GridLayout(ROWS,COLS));
 		setBorder(new EmptyBorder(20, 20, 20, 20));
 		Cases = new ArrayList<Case>();
@@ -51,19 +53,9 @@ public class GrilleUI extends JPanel implements ActionListener {
 				  boutton.setMaximumSize(new Dimension(30,30));
 				  boutton.setSize(new Dimension(30,30));
 				  Border blackline = BorderFactory.createLineBorder(Color.black,1);*/
-				 
-				  
-				 
-				
-				  
+				   
 				  }
-			  
 		 }
-	
-		
-		//setBorder(blackline);
-	
-
 	}
 
 	// METHODE ACTION PERFORMED
@@ -73,7 +65,8 @@ public class GrilleUI extends JPanel implements ActionListener {
 		
 		// la case sur lequel on a appuye
 		Case laCase = (Case) e.getSource();
-		laCase.morph("touche");
+		monControleur.getClickedCoord(laCase.getCoord());
+		laCase.morph("vide");
 		System.out.println("Case appuye: " + laCase.toString());
 	}
 	

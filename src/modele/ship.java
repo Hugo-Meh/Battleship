@@ -1,9 +1,7 @@
-package ship;
+package modele;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import modele.Coord;
 
 public class ship {
 	protected int size;

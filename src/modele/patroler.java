@@ -1,12 +1,11 @@
-package ship;
+package modele;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import modele.Coord;
-
 public class patroler extends ship {
 	patroler(){
+		
 		super();
 		size = 1;
 		occupiedPosition = new ArrayList<Coord>(size);

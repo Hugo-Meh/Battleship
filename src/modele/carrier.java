@@ -1,4 +1,4 @@
-package ship;
+package modele;
 
 public class carrier extends ship {
 

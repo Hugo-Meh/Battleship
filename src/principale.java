@@ -1,6 +1,8 @@
+import Controlleur.*;
 import Vue.*;
 public class principale {
 	public static void main(String [] args) {
-		BoardUI myBoard = new BoardUI();
+		IControleur myControleur = new Controleur();
+		BoardUI myBoard = new BoardUI(myControleur);
 	}
 }
