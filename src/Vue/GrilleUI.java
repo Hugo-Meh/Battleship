@@ -3,6 +3,7 @@ package Vue;
 import javax.swing.*;
 
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 
 import modele.Coord;
 
@@ -23,6 +24,7 @@ public class GrilleUI extends JPanel implements ActionListener {
 		// frame
 		super();
 		setLayout(new GridLayout(ROWS,COLS));
+		setBorder(new EmptyBorder(20, 20, 20, 20));
 		Cases = new ArrayList<Case>();
 		//setBackground(new Color(0,255,255));
 		
@@ -30,8 +32,15 @@ public class GrilleUI extends JPanel implements ActionListener {
 		for (int r = 1 ; r<= ROWS; r++) {
 			 
 			  for (int c = 1; c <= COLS; c++) {
-				  Case uneCase = new Case(new Coord(r,c));
-				  uneCase.addActionListener(this);  // on ecoute la Case
+				  Case uneCase = new Case(new Coord(c,r));
+				  if (titre == "adversaire") {
+					  uneCase.addActionListener(this);  // on ecoute la Case
+					  
+				  }
+				  else {
+					  uneCase.setEnabled(false);
+				  }
+				 
 				  Cases.add(uneCase); // Ajout de la case a la grille
 				  add(uneCase);
 				  /*// identifiant boutton en fonctions de ligne et colonne
@@ -64,6 +73,7 @@ public class GrilleUI extends JPanel implements ActionListener {
 		
 		// la case sur lequel on a appuye
 		Case laCase = (Case) e.getSource();
+		laCase.morph("touche");
 		System.out.println("Case appuye: " + laCase.toString());
 	}
 	

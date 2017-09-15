@@ -2,6 +2,7 @@ package Vue;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -16,20 +17,21 @@ public class BoardUI extends JFrame {
 	private JPanel ButtonContainer;
 	private GrilleUI grid;
 	private GrilleUI agrid;
-	private int totalHeight = 600;
-	private int totalwidth = 600;
+	private int totalHeight =600;
+	private int totalwidth = 950;
 	public BoardUI(){
 		
 		super("Battleship");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(totalwidth,totalHeight);
-		setLayout(new GridLayout(3,1));
+		setLayout(new GridBagLayout());
+		setLayout(new FlowLayout());
 		setResizable(false);
 		
 		// instancie le paneau de 
 		headBoard = new JPanel(); 
 		//headBoard.add();
-		headBoard.setSize(600,100);
+		//headBoard.setSize(600,100);
 		JLabel timer = new JLabel();
 		timer.setText("Time remaining XXXXX");
 		headBoard.add(timer);
@@ -39,8 +41,8 @@ public class BoardUI extends JFrame {
 		gridContainer = new JPanel();
 		gridContainer.setLayout(new GridLayout(1,2));
 		gridContainer.setSize(600,600);
-		grid = new GrilleUI("grid"); 
-		agrid = new GrilleUI("agrid");
+		grid = new GrilleUI("Joueur"); 
+		agrid = new GrilleUI("adversaire");
 		
 		// ajout des Grilles
 		gridContainer.add(grid);
@@ -51,22 +53,22 @@ public class BoardUI extends JFrame {
 		gridContainer.setVisible(true);
 		
 		ButtonContainer = new JPanel();
-		ButtonContainer.setSize(600,100);
+		//ButtonContainer.setSize(600,100);
 		ButtonContainer.setLayout(new FlowLayout());
 		
 		//Boutton Reset 
 		JButton reset = new JButton();
-		reset.setSize(200, 200);
+		//reset.setSize(200, 200);
 		reset.setText("Reset");
 		
 		//Boutton Save 
 		JButton Save = new JButton();
-		Save.setSize(200, 200);
+		//Save.setSize(200, 200);
 		Save.setText("Save");
 		
 		//Boutton Surrender
 		JButton Surrender = new JButton();
-		Surrender.setSize(200, 200);
+		//.setSize(200, 200);
 		Surrender.setText("Surrender");
 		
 		// ajout des boutton

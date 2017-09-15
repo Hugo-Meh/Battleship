@@ -5,13 +5,11 @@ import java.util.ArrayList;
 public class Board implements IBoard {
 	private int sizeX = 10;
 	private int sizeY = 10;
-	private  ArrayList <Coord> occupiedPos;
 	
 	public Board() {
-		occupiedPos = new ArrayList <Coord>();
 	}
 
-	@Override
+	/*@Override
 	public boolean add_occupied(Coord aCoord) {
 		if(!isOccupied(aCoord)) {
 			occupiedPos.add(aCoord);
@@ -26,7 +24,7 @@ public class Board implements IBoard {
 				return true;
 			}
 		return false;
-	}
+	}*/
 	
 	public boolean isOutOfBound(Coord aCoord) {
 		if (aCoord.getCompX() < 0 || aCoord.getCompX() >9) {
